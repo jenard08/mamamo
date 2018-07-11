@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>WEB-Network Analyzer Project</title>
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    </head>
+
+<body onload="myFunction()" style="margin:0;" id="try">
+<div class="container-fluid">
+    <div class="row">
+
+        <div id="loader"></div>
+
+        <div style="display:none;" id="myDiv"class="animate-bottom">
+            <div class="row" id="h4-css">
+                <!--h4 class="text-center">Trend Micro Network Analyzer </h4-->
+                <img src="{{url_for('static', filename='sample.jpg')}}" alt="trendmicro.com" class ="responsive">
+            </div>
+
+                <h2 id="font" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
+            <div class="row" id="p-css">
+                <p align="left">{{ data | safe }}</p>
+            </div>
+
+            <div class="row" align="center" id="btn-center">
+                <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+var myVar;
+
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+    }
+
+</script>
+
+</body>
+</html>

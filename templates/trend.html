@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+    <title>WEB-Network Analyzer Project</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css')}}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<!--align(id)-->
+<body id="try">
+	<div class ="container-fluid">
+		<div class="row" id="h4-css">
+			<!--h4 class="text-center">Trend Micro Network Analyzer </h4-->
+            <!-- dito mo lagay ung pyhton code kung pano mag import -->
+			 <img src="{{url_for('static', filename='sample.jpg')}}" class="responsive" alt="trendmictro.pic">
+
+		</div>
+		<div class="row center_div" align="center">
+
+			<form action="" method="POST"> <!-- dito lalagay yung form para sa backend nung we-->
+				<div class="col-xs-12">
+					<div class="input-group" id="btn-center">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+						<input class="form-control"type="text" name="filename" placeholder="Enter filename" value="{{ request.form.filename }}">
+						<br>
+					</div>
+				<!--dapat ma-scan eto ng user -->
+				    <div class="input-group" id="btn-center">
+					    <span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span>
+                        <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
+					    <br>
+				    </div>
+				<!-- dis will be redirected to the controller between html and python -->
+				    <div class="row" id="btn-center">
+                        <button type="submit" class="btn" value="GO">Gora Mumzsh</button>
+				    </div>
+
+
+			    </div>
+			</form>
+            <br>
+
+            {% if error %}
+                <p class="error"><strong>ERROR: </strong>{{ error }}
+            {% endif %}
+		</div>
+	</div>
+</body>
+
+</html>
