@@ -26,13 +26,18 @@
             </div>
 
 
+
+
             <!--padding top mga 50px-->
             <h2 id="font toppad" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
             <div class="row" align="center" id="btn-center">
                 <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
             </div>
+
+
+
             <div class="row" id="p-css">
-                <p align="left">{{ data | safe }}</p>
+                <p align="left">{{ data| safe }}</p>
             </div>
 
 
