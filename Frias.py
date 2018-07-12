@@ -59,8 +59,8 @@ def index_page():
     error =None # para macheck if may error no filename inputted and destination inputted
 
     if request.method == 'POST':
-        if request.form['filename'] == "" and request.form['destine'] == "":
-            error = 'Check whether you provide a filename or destination URL'
+        if request.form['filename'] == "" or request.form['destine'] == "":
+            error = 'Please fill up all the text field.'
 
         else:
             return redirect(url_for('main'), code=307)
