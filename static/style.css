@@ -72,7 +72,7 @@ div.sticky1{
     bottom: 0;
     width:100%;
     background-color: #ffffff;
-    padding: 30px 0px 70px 60px;
+    padding: 30px 0px 80px 60px;
     /*font-size: 20px;*/
 }
 .content{
@@ -82,8 +82,8 @@ div.sticky1{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 120px;
-    height: 40px;
+    width: 340px;
+    height: 60px;
 }
 #pad{
     float: right;
