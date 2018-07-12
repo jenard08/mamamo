@@ -19,22 +19,29 @@
         <div id="loader"></div>
 
         <div style="display:none;" id="myDiv"class="animate-bottom">
-            <div class="row" id="h4-css">
-                <!--h4 class="text-center">Trend Micro Network Analyzer </h4-->
-                <img src="{{url_for('static', filename='sample.jpg')}}" alt="trendmicro.com" class ="responsive">
+            <div class="sticky">
+                <div class="content">
+                    <img src="{{url_for('static', filename='tm.png')}}" class="content-himg" alt="trendlogo">
+                </div>
             </div>
 
-                <h2 id="font" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
+
+            <!--padding top mga 50px-->
+            <h2 id="font toppad" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
+            <div class="row" align="center" id="btn-center">
+                <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
+            </div>
             <div class="row" id="p-css">
                 <p align="left">{{ data | safe }}</p>
             </div>
 
-            <div class="row" align="center" id="btn-center">
-                <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
-            </div>
+
 
         </div>
 
+    </div>
+    <div class="footer">
+        <p id="pad">created by trenduo (FRIAS & FLORES)</p>
     </div>
 </div>
 
