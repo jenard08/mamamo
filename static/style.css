@@ -8,7 +8,7 @@
 	margin: 0 auto;
 	width:40%;
 }
-#btn-center{
+.btn-center{
 	padding-top:20px;
 }
 #image-design{
@@ -18,6 +18,7 @@
 #try{
     background-image: url('/static/part2_1.jpg');
     background-size: cover;
+
 
 }
 .responsive{
@@ -39,6 +40,11 @@
 .btn:hover {
     background-color: #ff3333;
 }
+/**/
+
+
+/**/
+
 .wrapper{
     text-align: center;
 }
@@ -101,7 +107,7 @@ div.sticky1{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 340px;
+    width: 540px;
     height: 60px;
 }
 #pad{

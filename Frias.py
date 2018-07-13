@@ -11,6 +11,8 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 
+g_data = ""
+
 def ping(myUrl):
     ping = subprocess.Popen(
         ["ping", myUrl],
@@ -57,25 +59,7 @@ def netstat():
 
     return out
 
-def email_send():
-
-    return
-
-@app.route('/', methods=['GET', 'POST'] )
-def index_page():
-    error =None # para macheck if may error no filename inputted and destination inputted
-
-    if request.method == 'POST':
-        if request.form['filename'] == "" or request.form['destine'] == "":
-            error = 'Please fill up all the text field.'
-
-        else:
-            return redirect(url_for('main'), code=307)
-    return render_template('trend.html', error=error)
-
-@app.route('/success',methods=['POST'])
 def main():
-
     fname = request.form['filename']
     myUrl = request.form['destine']
 
@@ -97,13 +81,31 @@ def main():
 
     data = st, ping_res, trace_res, nslookup_res, netstat_res
 
-    return render_template('loader.html', data=data)
+    return data
+
+@app.route('/', methods=['GET', 'POST'] )
+def index_page():
+    error =None # para macheck if may error no filename inputted and destination inputted
+
+    if request.method == 'POST':
+        if request.form['filename'] == "" or request.form['destine'] == "":
+            error = 'Please fill up all the text field.'
+        else:
+            return redirect(url_for('success'), code=307)
+    return render_template('trend.html', error=error)
+
+@app.route('/success',methods=['POST'])
+def success():
+
+    global g_data
+    g_data = main()
+
+    return render_template('loader.html', data=g_data)
 
 @app.route('/email')
 def email():
 
     try:
-
         me = "Kim_Frias@trendmicro.com"
         you = "Matthew_Flores@trendmicro.com"
         cc = "Kim_Frias@trendmicro.com"
@@ -113,9 +115,7 @@ def email():
         msg['From'] = me
         msg['To'] = you
 
-        html =""" <html><body>
-                <p>sample again</p>
-                <body></html>"""
+        html = "<html><body><p>" + str(g_data) + "</p><body></html>"
 
         part2 = MIMEText(html, 'html')
         msg.attach(part2)
@@ -127,8 +127,8 @@ def email():
 
         return render_template('email.html')
 
-    except Exception:
-        return False
+    except Exception as e:
+        return str(e)
 
 if __name__ == '__main__':
    app.run(debug = True)
