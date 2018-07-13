@@ -83,7 +83,7 @@ def main():
 
     return data
 
-@app.route('/', methods=['GET', 'POST'] )
+@app.route('/', methods=['GET', 'POST'])
 def index_page():
     error =None # para macheck if may error no filename inputted and destination inputted
 
