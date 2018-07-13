@@ -1,7 +1,7 @@
 /*trend.html*/
 #h4-css{
-    border: 1px solid powderblue;
-	padding: 20px 70px 20px 70px; 
+    border: 0px solid powderblue;
+	padding: 20px 100px 20px 100px;
 
 }
 .center_div{
@@ -112,12 +112,12 @@ div.sticky1{
 }
 #pad{
     float: right;
-    font-family: courier;
+    font-family: Century Gothic;
     font-style: bold;
     font-size: 15px;
-    color: #e60000;
+    color:   #b32d00;
     padding-top: 20px;
-    padding-right: 10px;
+    padding-right: 50px;
     text-align: center;
     opacity: 0.8;
 }

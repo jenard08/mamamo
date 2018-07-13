@@ -64,7 +64,7 @@ def main():
     myUrl = request.form['destine']
 
     ts = time.time()
-    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    st = datetime.datetime.fromtimestamp(ts).strftime('Network status report as of %Y-%m-%d %H:%M:%S' '<br/>')
     print "Network status report as of " + st
 
     ping_res = ping(myUrl).replace('\r\n', '<br/>')

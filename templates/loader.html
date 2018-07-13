@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>TCP/IP Utility</title>
+        <title></title>
 
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,15 +21,20 @@
         <div style="display:none;" id="myDiv"class="animate-bottom">
             <div class="sticky">
                 <div class="content">
-                    <img src="{{url_for('static', filename='final_na.jpg')}}" href="https://www.trendmicro.com" class="content-himg" alt="trendlogo">
+                    <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
+                    <img src="{{url_for('static', filename='cropped_3.jpg')}}" href="https://www.trendmicro.com" class="content-himg" alt="trendlogo">
                 </div>
             </div>
 
             <!--padding top mga 50px-->
+            <h2 id="font top pad" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
+            <div class="row btn-center" align="center" >
+                <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
+            </div>
             <h2 id="font toppad" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
             <!-- dis is for the header -->
 
-            <div class="row btn-center" align="center">
+            <div class="row btn-center" align="center" >
                 <form action="/email" method="GET">
                     <button class="btn" type="submit">Send result via Email</button>
                     <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
@@ -45,7 +50,7 @@
 
     </div>
     <div class="footer">
-        <p id="pad">created by trenduo (FRIAS & FLORES)</p>
+        <p id="pad">™ Network Diagnostic Tool 2018</p>
     </div>
 </div>
 
