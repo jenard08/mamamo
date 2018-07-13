@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
 <title>TCP/IP Utility</title>
-	<link rel="icon" href="images/Ego_network.png" type="image/png" sizes="16x16">
-
-
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,20 +26,20 @@
 
 			<form action="" method="POST"> <!-- dito lalagay yung form para sa backend nung we-->
 				<div class="col-xs-12">
-					<div class="input-group" id="btn-center">
+					<div class="input-group btn-center">
 						<span class="input-group-addon"></span>
 						<input class="form-control"type="text" name="filename" placeholder="Enter filename" value="{{ request.form.filename }}">
 						<br>
 					</div>
 				<!--dapat ma-scan eto ng user -->
-				    <div class="input-group" id="btn-center">
+				    <div class="input-group btn-center">
 					    <span class="input-group-addon"></span>
                         <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
 					    <br>
 				    </div>
 				<!-- this will be redirected to the controller between html and python -->
-				    <div class="row" id="btn-center">
-                        <button type="submit" class="btn" value="GO">GO</button>
+				    <div class="row btn-center">
+                        <button type="submit" class="btn" value="GO"><span>GO</span></button>
 				    </div>
 
 
