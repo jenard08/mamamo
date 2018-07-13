@@ -3,9 +3,6 @@ import subprocess
 import re
 import datetime
 import time
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
@@ -57,10 +54,6 @@ def netstat():
 
     return out
 
-def email_send():
-
-    return
-
 @app.route('/', methods=['GET', 'POST'] )
 def index_page():
     error =None # para macheck if may error no filename inputted and destination inputted
@@ -98,37 +91,6 @@ def main():
     data = st, ping_res, trace_res, nslookup_res, netstat_res
 
     return render_template('loader.html', data=data)
-
-@app.route('/email')
-def email():
-
-    try:
-
-        me = "Kim_Frias@trendmicro.com"
-        you = "Matthew_Flores@trendmicro.com"
-        cc = "Kim_Frias@trendmicro.com"
-
-        msg = MIMEMultipart('related')
-        msg['Subject'] = "Trend Micro: Network Diagnostic Tool result"
-        msg['From'] = me
-        msg['To'] = you
-
-        html =""" <html><body>
-                <p>sample again</p>
-                <body></html>"""
-
-        part2 = MIMEText(html, 'html')
-        msg.attach(part2)
-
-        s = smtplib.SMTP('sjc1-rly.sdi.trendmicro.com')
-        s.sendmail(me, [you, cc], msg.as_string())
-        s.quit()
-        print 'email sent!'
-
-        return render_template('email.html')
-
-    except Exception:
-        return False
 
 if __name__ == '__main__':
    app.run(debug = True)

@@ -21,8 +21,8 @@
         <div style="display:none;" id="myDiv"class="animate-bottom">
             <div class="sticky">
                 <div class="content">
-                    <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
-                    <img src="{{url_for('static', filename='cropped_3.jpg')}}" href="https://www.trendmicro.com" class="content-himg" alt="trendlogo">
+
+                    <img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo">
 
                 </div>
             </div>
@@ -33,19 +33,19 @@
                 <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
             </div>
             <h2 id="font toppad" align="center">You are trying to check the host: {{ request.form.destine }}</h2>
-            <!-- dis is for the header -->
 
-            <div class="row btn-center" align="center" >
-                <form action="/email" method="GET">
-                    <button class="btn" type="submit">Send result via Email</button>
-                    <button class="btn" type="button" formaction="/download">Download EXE File</button>
-                </form>
+            <div class="row" align="center" id="btn-center">
+                <button class="btn"><i class="fa fa-download"></i> Download {{ request.form.filename }}</button>
 
             </div>
+
+
 
             <div class="row" id="p-css">
                 <p align="left">{{ data| safe }}</p>
             </div>
+
+
 
         </div>
 

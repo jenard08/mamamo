@@ -29,30 +29,11 @@
     border: none;
     color: white;
     padding: 12px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     cursor: pointer;
-    margin: 4px 2px;
-    font-size: 20px;
+     font-size: 20px;
 }
 .btn:hover {
     background-color: #ff3333;
-}
-.wrapper{
-    text-align: center;
-}
-.button{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-    cursor: pointer;
 }
 #p-css{
     /*border: 2px solid  #ff1a1a;*/
