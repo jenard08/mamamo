@@ -34,6 +34,7 @@
                 <form action="/email" method="GET">
                     <button class="btn" type="submit"><span>Send result via Email</span></button>
                     <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
+                    <input type = "hidden" value = {{ request.form.email }} name = "email">
                 </form>
 
 
