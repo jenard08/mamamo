@@ -32,13 +32,13 @@
 
             <div class="row btn-center" align="center" >
                 <form action="/email" method="GET">
-                    <button class="btn" type="submit">Send result via Email</button>
+                    <button class="btn" type="submit"><span>Send result via Email</span></button>
                     <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
                 </form>
 
 
             <div class="row" id="p-css">
-                <p align="left">{{ data | safe }}</p>
+                <p align="left">{{ data[0] | safe }}</p>
             </div>
 
 

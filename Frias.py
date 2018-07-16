@@ -60,8 +60,8 @@ def netstat():
     return out
 
 def main():
-    fname = request.form['filename']
-    myUrl = request.form['destine']
+    #fname = request.form['filename']
+    myUrl = request.form.get('destine')
 
     ts = time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('Network status report as of %Y-%m-%d %H:%M:%S' '<br/>')
@@ -88,7 +88,7 @@ def index_page():
     error =None # para macheck if may error no filename inputted and destination inputted
 
     if request.method == 'POST':
-        if request.form['filename'] == "" or request.form['destine'] == "":
+        if request.form.get("email") == "" or request.form.get("destine") == "":
             error = 'Please fill up all the text field.'
         else:
             return redirect(url_for('success'), code=307)
@@ -106,9 +106,10 @@ def success():
 def email():
 
     try:
-        me = "Kim_Frias@trendmicro.com"
+        #need to verify on this
+        me = request.form.get("email")
         you = "Matthew_Flores@trendmicro.com"
-        cc = "Kim_Frias@trendmicro.com"
+        cc = request.form.get("email")
 
         msg = MIMEMultipart('related')
         msg['Subject'] = "Trend Micro: Network Diagnostic Tool result"
