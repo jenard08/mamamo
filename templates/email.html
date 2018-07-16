@@ -12,9 +12,21 @@
     <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='style.css')}}">
 
 </head>
-<body>
-    <h2>
-        Thank you for using this tool, press 'return' to try again.
-    </h2>
+
+<body id="try">
+   <div class="container-fluid">
+       <div class="row">
+
+           <h2 id="font top pad" align="center">Email sent</h2>
+           <h2 id="font top pad" >Please update the DCS team for ticketing</h2>
+           <div class="row btn-center">
+                 <form action="/" method="GET">
+                    <button class="btn" type="submit"><span>Go back to main page</span></button>
+                </form>
+           </div>
+
+       </div>
+   </div>
+
 </body>
 </html>
