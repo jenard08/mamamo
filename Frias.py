@@ -79,7 +79,7 @@ def main():
     netstat_res = netstat().replace('\r\n', '<br/>')
     print "Netstat complete"
 
-    data = st, ping_res, trace_res, nslookup_res, netstat_res
+    data = st, ping_res, trace_res, nslookup_res, netstat_res #[0].[1],[2],[3],[4],[5]
 
     return data
 
