@@ -1,7 +1,12 @@
 /*trend.html*/
+body{
+    overflow-x: hidden;
+}
+
 #h4-css{
     border: 0px solid powderblue;
 	padding: 20px 100px 20px 100px;
+	width: 100%;
 
 }
 .center_div{
@@ -9,7 +14,6 @@
 	width:40%;
 }
 .btn-center{
-
 	padding-top:20px;
 }
 #image-design{
@@ -90,7 +94,6 @@
     font-style: normal;
 }
 .footer {
-   position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
@@ -106,6 +109,7 @@ div.sticky{
     background-color: #ffffff;
     padding: 20px 0px 70px 60px;
     margin-right: -20px;
+    z-index: 99999;
 
 }
 div.sticky1{
@@ -150,12 +154,12 @@ line-height: 1.4;
 font-weight: 100;
 }
 
-.col-lg-4 {
+
+.cont {
 border: 5px solid  #cc0000;
 background: #ffffff;
-
-
-
+padding: 10px;
+margin: 0;
 }
 
 

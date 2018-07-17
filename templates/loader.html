@@ -26,35 +26,42 @@
             </div>
 
             <!--padding top mga 50px-->
-            <h2 align="center">You are trying to check the host: {{ request.form.destine }}</h2>
+            <h2 align="center"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
 
             <div class="row btn-center" align="center" >
                 <form action="/email" method="GET">
                     <button class="btn" type="submit"><span>Send result via Email</span></button>
-
                     <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
                     <input type = "hidden" value = {{ request.form.email }} name = "email">
 
                 </form>
-            <div class="container">
-                <div class = "row">
-                    <div class = "col-lg-4">
-                        <p align = left>{{ data[1] | safe }}</p>
-                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
-                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
-               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
-                    </div>
-                    <div class = "col-lg-4">
-                        <p align = left>{{ data[1] | safe }}</p>
-                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
-                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
-               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
-                    </div>
-                    <div class = "col-lg-4">
-                        <p align = left>{{ data[1] | safe }}</p>
-                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
-                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
-               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
+                    <div class ="container">
+                        <div class ="row">
+                            <div class ="col-lg-4">
+                                <h4>PING OUTPUT</h4>
+                                <p align= left class = "cont">{{ data[1] | safe }}</p>
+                            </div>
+
+                            <div class ="col-lg-4">
+                                <h4>NETSTAT OUTPUT</h4>
+                                <p align= left class = "cont">{{ data[2] | safe }}</p>
+                            </div>
+
+                            <div class ="col-lg-4">
+                                <h4>NSLOOKUP OUTPUT</h4>
+                                <p align= left class = "cont">{{ data[3] | safe }}</p>
+                            </div>
+
+
+
+                        </div>
+                        <div class ="row">
+                            <div class ="col-lg-12">
+                                <h4>NETSTAT OUTPUT</h4>
+                                <p align= left class = "cont">{{ data[4] | safe }}</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
