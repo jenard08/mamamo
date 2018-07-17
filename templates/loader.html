@@ -31,7 +31,10 @@
             <div class="row btn-center" align="center" >
                 <form action="/email" method="GET">
                     <button class="btn" type="submit"><span>Send result via Email</span></button>
-                    <button class="btn" type="button" formaction="/download"><span>Download {{ request.form.filename }}</span></button>
+
+                    <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
+                    <input type = "hidden" value = {{ request.form.email }} name = "email">
+
                 </form>
             <div class="container">
                 <div class = "row">
