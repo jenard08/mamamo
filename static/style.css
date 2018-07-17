@@ -21,8 +21,6 @@
     background-size: cover;
     background-attachment: fixed;
 
-
-
 }
 .responsive{
 	width: 100%;
@@ -107,7 +105,8 @@ div.sticky{
     top: 0;
     background-color: #ffffff;
     padding: 20px 0px 70px 60px;
-    /*font-size: 20px;*/
+    margin-right: -20px;
+
 }
 div.sticky1{
     position: -webkit-sticky;
@@ -128,7 +127,7 @@ div.sticky1{
     width: 400px;
     height: 60px;
 }
-#pad{
+.pad{
     float: right;
     font-family: Century Gothic;
     font-style: bold;
@@ -144,28 +143,20 @@ div.sticky1{
 }
 
 #holder {
-background: #de302f;
 font-family: 'Roboto', sans-serif;
-font-size: 14px
+font-size: 20px;
+font-weight: bold;
 line-height: 1.4;
-color: #ffffff;
 font-weight: 100;
 }
 
-.container {
-position: relative;
-height: auto;
+.col-lg-4 {
 border: 5px solid  #cc0000;
 background: #ffffff;
-margin-top: 100px;
-margin-bottom: 100px;
-margin-right: 150px;
-margin-left: 20px;
-padding: 30px;
-box-sizing: border-box;
+
+
 
 }
-
 
 
 /*additional design*/

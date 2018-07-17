@@ -33,15 +33,27 @@
                     <button class="btn" type="submit"><span>Send result via Email</span></button>
                     <button class="btn" type="button" formaction="/download"><span>Download {{ request.form.filename }}</span></button>
                 </form>
-
-
             <div class="container">
-                <p align = left>{{ data[0] | safe }}</p> <!-- isang text box -->
-          <!--      <p align = left>{{ data[1] | safe }}</p> <!-- isang text box -->
-           <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
-            <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
-       <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
-
+                <div class = "row">
+                    <div class = "col-lg-4">
+                        <p align = left>{{ data[1] | safe }}</p>
+                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
+                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
+               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
+                    </div>
+                    <div class = "col-lg-4">
+                        <p align = left>{{ data[1] | safe }}</p>
+                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
+                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
+               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
+                    </div>
+                    <div class = "col-lg-4">
+                        <p align = left>{{ data[1] | safe }}</p>
+                   <!--     <p align = left>{{ data[2] | safe }}</p> <!-- isang text box -->
+                    <!--    <p align = left>{{ data[3] | safe }}</p> <!-- isang text box -->
+               <!--         <p align = left>{{ data[4] | safe }}</p> <!-- isang text box -->
+                    </div>
+                </div>
 
             </div>
 
@@ -51,7 +63,7 @@
 
     </div>
     <div class="footer">
-        <p id="pad">™ Network Diagnostic Tool 2018</p>
+        <p class="pad">™ Network Diagnostic Tool 2018</p>
     </div>
 </div>
 
