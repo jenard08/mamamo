@@ -34,15 +34,13 @@
                 <form action="/email" method="GET">
                     <button class="btn" type="submit"><span>Send result via Email</span></button>
                     <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
-                    <input type = "hidden" value = {{ request.form.email }} name = "email">
+                    <input type = "hidden" value = {{ request.form.email }} name = "email"> <!-- use to hide the forms to send values to other pages -->
                 </form>
 
 
             <div class="row" id="p-css">
                 <p align="left">{{ data | safe }}</p>
             </div>
-
-
 
         </div>
 
