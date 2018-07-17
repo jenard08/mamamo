@@ -1,4 +1,6 @@
 /*trend.html*/
+
+
 body{
     overflow-x: hidden;
 }
@@ -7,7 +9,6 @@ body{
     border: 0px solid powderblue;
 	padding: 20px 100px 20px 100px;
 	width: 100%;
-
 }
 .center_div{
 	margin: 0 auto;
@@ -97,6 +98,9 @@ body{
    left: 0;
    bottom: 0;
    width: 100%;
+   /*padding: 20px 0px 70px 60px;*/
+   margin-right:auto;
+   margin-left:auto;
    background-color: #ffffff;
 
    /*border: 2px solid red;*/
@@ -106,10 +110,12 @@ div.sticky{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    width: 100%;
     background-color: #ffffff;
     padding: 20px 0px 70px 60px;
     margin-right: -20px;
     z-index: 99999;
+
 
 }
 div.sticky1{

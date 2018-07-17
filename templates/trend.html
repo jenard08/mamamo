@@ -29,7 +29,7 @@
 					<div class="input-group btn-center" id="">
 
 						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-						<input class="form-control"type="text" name="email" placeholder="example@trendmirco.com" value="{{ request.args.get.email }}">
+						<input class="form-control"type="text" name="email" placeholder="example@trendmirco.com" value="{{ request.form.email }}">
 
 						<br>
 					</div>
@@ -37,7 +37,7 @@
 				    <div class="input-group btn-center">
 
 					    <span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span>
-                        <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.args.get.destine }}">
+                        <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
 
 					    <br>
 				    </div>
@@ -46,17 +46,16 @@
 
 						<button type="submit" class="btn" value="GO"><span>GO</span></button>
 
-
 				    </div>
 
-
 			    </div>
+                    {% if error %}
+                        <p class="error"><strong>ERROR: </strong>{{ error }}
+                    {% endif %}
 			</form>
             <br>
 
-            {% if error %}
-                <p class="error"><strong>ERROR: </strong>{{ error }}
-            {% endif %}
+
 
 		</div>
         <div class="footer">

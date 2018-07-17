@@ -36,7 +36,6 @@ def tracert(myUrl):
     return out
 
 
-
 def nslookup(myUrl):
     nslookup = subprocess.Popen(
         ["nslookup", myUrl],
@@ -59,9 +58,11 @@ def netstat():
 
     return out
 
+
+
 def main():
     #fname = request.form['filename']
-    myUrl = request.form.get('destine')
+    myUrl = request.form["destine"]
 
     ts = time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('Network status report as of %Y-%m-%d %H:%M:%S' '<br/>')
@@ -86,10 +87,13 @@ def main():
 @app.route('/', methods=['GET', 'POST'])
 def index_page():
     error =None # para macheck if may error no filename inputted and destination inputted
+    email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
 
     if request.method == 'POST':
-        if request.args.get("email") == "" or request.args.get("destine") == "":
+        if request.form["email"] == "" or request.form["destine"] == "":
             error = 'Please fill up all the text field.'
+        elif not email_re.match(str(request.form['email'])):
+            error = 'Invalid email address. Please try again'
         else:
             return redirect(url_for('success'), code=307)
     return render_template('trend.html', error=error)
@@ -104,11 +108,10 @@ def success():
 
 @app.route('/email')
 def email():
-
     try:
-        #need to verify on this
+        # need to verify on this
         me = request.args.get("email")
-        you = "Matthew_Flores@trendmicro.com"
+        you = "Kim_Frias@trendmicro.com"
         cc = request.args.get("email")
 
         msg = MIMEMultipart('related')
@@ -130,6 +133,7 @@ def email():
 
     except Exception as e:
         return str(e)
+
 
 if __name__ == '__main__':
    app.run(debug = True)
