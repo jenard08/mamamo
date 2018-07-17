@@ -1,7 +1,15 @@
 /*trend.html*/
+.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
 #h4-css{
-    border: 0px solid powderblue;
-	padding: 20px 100px 20px 100px;
+    border: 2px solid powderblue;
+	padding: 20px 20px 20px 50px;
+	width: 100%;
+
 
 }
 .center_div{
@@ -9,7 +17,6 @@
 	width:40%;
 }
 .btn-center{
-
 	padding-top:20px;
 }
 #image-design{
@@ -90,10 +97,13 @@
     font-style: normal;
 }
 .footer {
-   position: fixed;
+   position: absolute;
    left: 0;
    bottom: 0;
    width: 100%;
+   /*padding: 20px 0px 70px 60px;*/
+   margin-right:auto;
+   margin-left:auto;
    background-color: #ffffff;
 
    /*border: 2px solid red;*/
@@ -103,9 +113,11 @@ div.sticky{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    width: 100%;
     background-color: #ffffff;
-    padding: 20px 0px 70px 60px;
-    margin-right: -20px;
+    padding: 20px 10px 70px 60px;
+    /*margin-right: auto;
+    margin-left:auto;*/
 
 }
 div.sticky1{
