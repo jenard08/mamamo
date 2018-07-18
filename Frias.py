@@ -86,7 +86,7 @@ def main():
 
 @app.route('/', methods=['GET', 'POST'])
 def index_page():
-    error =None # para macheck if may error no filename inputted and destination inputted
+    error =None # para macheck if may error no filename inputted and destination inputteds
     email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
 
     if request.method == 'POST':
@@ -111,7 +111,7 @@ def email():
     try:
         # need to verify on this
         me = request.args.get("email")
-        you = "Kim_Frias@trendmicro.com"
+        you = ""
         cc = request.args.get("email")
 
         msg = MIMEMultipart('related')
