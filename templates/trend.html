@@ -18,50 +18,64 @@
 
 		<div class="row" id="h4-css">
 			<!--h4 class="text-center"> TCP/IP Utility </h4-->
-            <!-- dito mo lagay ung pyhton code kung pano mag import -->
+            <!-- image to start the modals -->
 			 <img src="{{url_for('static', filename='samplev2.jpg')}}" class="responsive" alt="trendmictro.pic">
-
 		</div>
-		<div class="row center_div" align="center">
+		<div class="row btn-center" align="center">
+			<button class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" value="GO"><span>GO</span></button>
+		</div>
 
-			<form action="" method="POST"> <!-- dito lalagay yung form para sa backend nung we-->
-				<div class="col-xs-12">
-					<div class="input-group btn-center" id="">
+		<!-- this is where the modal starts -->
 
-						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-						<input class="form-control"type="text" name="email" placeholder="example@trendmirco.com" value="{{ request.form.email }}">
+		<div id="id01" class="modal">
+			 <form class="modal-content animate" action="" method="POST">
+				 <div class="imgcontainer">
+					 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					 <img src="{{url_for('static', filename='t-logo.jpg')}}" alt="Avatar" class="avatar">
+				</div>
 
-						<br>
-					</div>
-				<!--dapat ma-scan eto ng user -->
-				    <div class="input-group btn-center">
+				<div class="container">
 
-					    <span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span>
-                        <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
+			  		<label for="email"><b>Enter your email:</b></label>
+					<!--span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span-->
+			  		<input type="text" placeholder="First_Last@trendmirco.com" name="email" value="{{ request.form.email }}" required>
 
-					    <br>
-				    </div>
-				<!-- dis will be redirected to the controller between html and python -->
-				    <div class="row btn-center">
+			  		<label for="psw"><b>Enter Destination address:</b></label>
+					<!--span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span-->
+			  		<input type="text" placeholder="IP Address/URL" name="destine" value="{{ request.form.destine }}" required>
 
-						<button type="submit" class="btn" value="GO"><span>GO</span></button>
+					<button type="submit">Enter to proceed</button>
 
-				    </div>
-
-			    </div>
-                    {% if error %}
-                        <p class="error"><strong>ERROR: </strong>{{ error }}
-                    {% endif %}
-			</form>
-            <br>
+				</div>
+				 {% if error %}
+				 	<p class="error"><strong>ERROR: </strong>{{ error }}
+						{% endif %}
+				 <div class="container" style="background-color:#f1f1f1">
+      				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+				 </div>
 
 
+			 </form>
+		</div>
 
 		</div>
         <div class="footer">
             <p class="pad">™ Network Diagnostic Tool 2018</p>
         </div>
+
 	</div>
+
+	<script>
+	// Get the modal
+	var modal = document.getElementById('id01');
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+	</script>
 </body>
 
 </html>

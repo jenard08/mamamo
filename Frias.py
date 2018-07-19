@@ -111,7 +111,7 @@ def email():
     try:
         # need to verify on this
         me = request.args.get("email")
-        you = ""
+        you = "Kim_Frias@trendmicro.com"
         cc = request.args.get("email")
 
         msg = MIMEMultipart('related')
