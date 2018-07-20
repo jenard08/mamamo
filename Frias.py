@@ -87,14 +87,15 @@ def main():
 
 @app.route('/', methods=['GET', 'POST'])
 def index_page():
-    error = None  # para macheck if may error no filename inputted and destination inputted
-    email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
 
+    error =None # para macheck if may error no filename inputted and destination inputteds
+    #email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
+    #request.form["email"] == "" or
     if request.method == 'POST':
-        if request.form["email"] == "" or request.form["destine"] == "":
+        if request.form["destine"] == "":
             error = 'Please fill up all the text field.'
-        elif not email_re.match(str(request.form['email'])):
-            error = 'Invalid email address. Please try again'
+        #elif not email_re.match(str(request.form['email'])):
+            #error = 'Invalid email address. Please try again'
         else:
             return redirect(url_for('success'), code=307)
     return render_template('trend.html', error=error)

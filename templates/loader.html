@@ -13,136 +13,119 @@
     </head>
 
 <body onload="myFunction()" style="margin:0;" id="try">
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
 
-        <div id="loader"></div>
+            <div id="loader"></div>
 
-        <div style="display:none;" id="myDiv"class="animate-bottom">
-            <div class="sticky">
-                <div class="content">
-                    <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
+            <div style="display:none;" id="myDiv"class="animate-bottom">
+                <div class="sticky">
+                    <div class="content">
+                        <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
+                    </div>
                 </div>
+
             </div>
 
             <div class = "border">
-            <div>
-            <h1 class = "font" align="center"></br></br>You are trying to check the host: {{ request.form.destine }}</h1>
-            </div>
-
-            <div>
-            <h2 class = "font1" align="center">{{ data[0] | safe }}</h2>
-            </div>
+                <div>
+                    <h1 class = "font" align="center"></br></br>You are trying to check the host: {{ request.form.destine }}</h1>
                 </div>
+
+                <div>
+                    <h2 class = "font1" align="center">{{ data[0] | safe }}</h2>
+                </div>
+            </div>
 
             <div>
                 <h1 class = "font2" align ="left"> Your Test Results</h1>
             </div>
 
-
-
-
-            <div class="row btn-center" align="center" >
-
-
-                    <div class ="container">git
-                        <div class ="row">
-
-
-                            <div class ="col-lg-4">
-                                 <div class ="thecard front cont">
-                                      <h2 align = center >PING OUTPUT</h2>
-                              <!--  <h4>Output Timestamp</h4> -->
-                                     <div class = "thecard back cont">
-                                      <p align= left >{{ data[1] | safe }}</p>
-
-                                     </div>
-                                 </div>
-
-                            </div>
-
-                             <div class ="col-lg-4">
-                                 <div class ="thecard front cont">
-                                     <p align = left > <h2>TRACERT OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
-                                     <div class = "thecard back cont">
-                                      <p align= left >{{ data[2] | safe }}</p>
-
-                                     </div>
-                                 </div>
-
-                            </div>
-
-                             <div class ="col-lg-4">
-                                 <div class ="thecard front cont">
-                                     <p align = left > <h2>NSLOOKUP OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
-                                     <div class = "thecard back cont">
-                                      <p align= left >{{ data[3] | safe }}</p>
-
-                                     </div>
-                                 </div>
-
-                            </div>
-                            <div class ="row">
-                             <div class ="col-lg-8">
-                                 <div class ="thecard front cont">
-                                     <p align = left > <h2>NETSTAT OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
-                                     <div class = " back cont">
-                                      <p align= left >{{ data[4] | safe }}</p>
-                                     </div>
-                                 </div>
-                            </div>
-
-<!--
-                            <div class ="col-lg-4">
-                                <h4>Ping Output</h4>
-                                <p align= left class = "cont">{{ data[1] | safe }}</p>
-                            </div>
-
-
-                            <div class ="col-lg-4">
-                                  <h4>Tracert Output</h4>
-                                <p align= left class = "cont">{{ data[2] | safe }}</p>
-                            </div>
-
-                            <div class ="col-lg-4">
-                                <h4>Nslookup Output</h4>
-                                <p align= left class = "cont">{{ data[3] | safe }}</p>
-                            </div>
-
+                <!--padding top mga 50px-->
+            <div class ="row btn-center">
+                <div class ="col-lg-6" >
+                    <div class ="container">
+                        <img src="{{url_for('static', filename='PING-box.jpg')}}"class="responsive">
+                        <div class="overlay" data-modal="#modalOne">
+                            <div class="text" >PING</div></div>
                         </div>
-                        <div class ="row">
-                            <div class ="col-lg-12">
-                                <h4>Netstat Output</h4>
-                                <p align= left class = "cont">{{ data[4] | safe }}</p>
-                            </div> -->
+                    </div>
+                    <!-- ping and  tracert -->
+                    <div class ="col-lg-6" >
+                        <div class="container">
+                            <img src="{{url_for('static', filename='TRACERT-box.jpg')}}" class="responsive" >
+                            <div class="overlay" data-modal="#modalTwo">
+                                <div class="text">TRACERT</div>
+                            </div>
                         </div>
-                            <form action="/email" method="GET">
-                            <button class="row btn-center btn123 btn"  type="submit"><span>Send result via Email</span></button>
-                           <!---- <button class="row btn-center btn123 btn" type="button" formaction="/download"><span>Download EXE File</span></button> -->
-                            <input type = "hidden" value = {{ request.form.email }} name = "email"> <!-- use to hide the forms to send values to other pages -->
-
-                            </form>
+                    </div>
+                </div>
+                <div class="modal" id="modalOne">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
+                        <p>{{ data[1] | safe }}</p>
+                    </div>
+                </div>
+                <div class="modal" id="modalTwo">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModalTracert').style.display='none'"class="close">&times;</span>
+                        <p>{{ data[2] | safe }}</p>
                     </div>
                 </div>
 
+                <!-- nslookup and netstat -->
+                <div class ="row btn-center" >
+                    <div class ="col-lg-6">
+                        <div class="container">
+                            <img src="{{url_for('static', filename='NSLOOKUP-box.jpg')}}"class="responsive" >
+                            <div class="overlay" data-modal="#modalThree">
+                                <div class="text">NSLOOKUP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class ="col-lg-6" >
+                        <div class="container">
+                            <img src="{{url_for('static', filename='NETSTAT-box.jpg')}}" class="responsive">
+                            <div class="overlay" data-modal="#modalFour">
+                                <div class="text">NETSTAT</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="modalThree">
+                        <div class="modal-content">
+                            <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
+                            <p>{{ data[3] | safe }}</p>
+                            </div>
+                        </div>
+                    <div class="modal" id="modalFour">
+                        <div class="modal-content">
+                            <span onclick="document.getElementById('myModalTracert').style.display='none'"class="close">&times;</span>
+                            <p>{{ data[4] | safe }}</p>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
             <div class="footer">
-        <p class="pad">™ Network Diagnostic Tool 2018</p>
+                <p class="pad">™ Network Diagnostic Tool 2018</p>
+            </div>
     </div>
-
-        </div>
-
-
-    </div>
-
-</div>
 
     <script>
-1
+    $(".overlay").on("click", function() {
+      var modal = $(this).data("modal");
+      $(modal).show();
+    });
+
+    $(".modal").on("click", function(e) {
+      var className = e.target.className;
+      if(className === "modal" || className === "close"){
+        $(this).closest(".modal").hide();
+      }
+    });
+
     var myVar;
 
         function myFunction() {

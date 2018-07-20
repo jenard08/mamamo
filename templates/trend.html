@@ -25,32 +25,6 @@
 			<button class="row btn-center btn123 btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" value="GO"><span>START TEST</span></button>
 		</div>
 
-<!--
-<<<<<<< HEAD
-						<span class="input-group-addon"></span>
-						<input class="form-control"type="text" name="email" placeholder="Enter email | example@trendmicro.com" value="{{ request.form.email }}">
-						<br>
-					</div>
-				&lt;!&ndash;dapat ma-scan eto ng user &ndash;&gt;
-				    <div class="input-group btn-center">
-
-					    <span class="input-group-addon"></span>
-                        <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
-
-					    <br>
-				    </div>
-				&lt;!&ndash; dis will be redirected to the controller between html and python &ndash;&gt;
-				    <div>
-						<button type="submit" class="row btn-center btn123 btn" value="GO"><span>START TEST</span></button>
-				    </div>
-
-			    </div>
-                    {% if error %}
-                       <p class="error"><strong>ERROR: </strong>{{ error }}
-                    {% endif %}
--->
-
-		<!-- this is where the modal starts -->
 
 		<div id="id01" class="modal">
 			 <form class="modal-content animate" action="" method="POST">
@@ -60,11 +34,10 @@
 				</div>
 
 				<div class="container">
-
-			  		<label for="email"><b>Enter your email:</b></label>
-					<!--span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span-->
+                    <!--<label for="email"><b>Enter your email:</b></label>
+					&lt;!&ndash;span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span&ndash;&gt;
 			  		<input type="text" placeholder="First_Last@trendmirco.com" name="email" value="{{ request.form.email }}" required>
-
+-->
 			  		<label for="psw"><b>Enter Destination address:</b></label>
 					<!--span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span-->
 			  		<input type="text" placeholder="IP Address/URL" name="destine" value="{{ request.form.destine }}" required>
