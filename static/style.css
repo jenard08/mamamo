@@ -4,6 +4,10 @@ body{
     overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
 }
+#sample-fontts{
+    font-family: League Gothic;
+}
+
 #h4-css{
     border: 0px solid powderblue;
 	padding: 20px 100px 20px 100px;
@@ -14,7 +18,7 @@ body{
 	width:40%;
 }
 .btn-center{
-	padding-top:20px;
+	padding-top:30px;
 }
 #image-design{
 	border-radius: 8px;
@@ -26,8 +30,42 @@ body{
 
 }
 .responsive{
+    display:block;
 	width: 100%;
 	height: auto;
+	cursor:pointer;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #ff4d4d;
+}
+.container:hover .overlay {
+  opacity: 1;
+}
+.p-ns{
+    padding-left: 30%;
+}
+.t-net{
+    padding-right:30%;
+}
+.text {
+  font-family: League Gothic;
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 .btn {
   border-radius: 4px;
@@ -89,7 +127,7 @@ body{
     font-style: normal;
 }
 .footer {
-   position: fixed;
+   /*position: fixed;*/
    left: 0;
    bottom: 0;
    width: 100%;
@@ -250,7 +288,8 @@ img.avatar {
 }
 
 .container {
-    padding: 16px;
+    width: 50%;
+    position:relative;
 }
 
 

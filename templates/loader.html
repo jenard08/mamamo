@@ -13,59 +13,85 @@
     </head>
 
 <body onload="myFunction()" style="margin:0;" id="try">
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
 
-        <div id="loader"></div>
+            <div id="loader"></div>
 
-        <div style="display:none;" id="myDiv"class="animate-bottom">
-            <div class="sticky">
-                <div class="content">
-                    <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
-                </div>
-            </div>
-
-            <!--padding top mga 50px-->
-            <h2 align="center"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
-
-            <div class="row btn-center" align="center" >
-                <form action="/email" method="GET">
-                    <button class="btn" type="submit"><span>Send result via Email</span></button>
-                    <button class="btn" type="button" formaction="/download"><span>Download EXE File</span></button>
-                    <input type = "hidden" value = {{ request.form.email }} name = "email"> <!-- use to hide the forms to send values to other pages -->
-
-                </form>
-
-
-                </form>
-                    <div class ="container">
-                        <div class ="row">
-                            <div class ="col-lg-4">
-                                <h4>PING OUTPUT</h4>
-                                <p align= left class = "cont">{{ data[1] | safe }}</p>
-                            </div>
-
-                            <div class ="col-lg-4">
-                                <h4>NETSTAT OUTPUT</h4>
-                                <p align= left class = "cont">{{ data[2] | safe }}</p>
-                            </div>
-
-                            <div class ="col-lg-4">
-                                <h4>NSLOOKUP OUTPUT</h4>
-                                <p align= left class = "cont">{{ data[3] | safe }}</p>
-                            </div>
-
-
-
-                        </div>
-                        <div class ="row">
-                            <div class ="col-lg-12">
-                                <h4>NETSTAT OUTPUT</h4>
-                                <p align= left class = "cont">{{ data[4] | safe }}</p>
-                            </div>
-                        </div>
-
+            <div style="display:none;" id="myDiv"class="animate-bottom">
+                <div class="sticky">
+                    <div class="content">
+                        <a href="/"><img src="{{url_for('static', filename='cropped_3.jpg')}}" class="content-himg" alt="trendlogo"></a>
                     </div>
+                </div>
+
+                <!--padding top mga 50px-->
+                <h2 align="center" id="sample-fontts"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
+
+                <div class ="row btn-center">
+                    <div class ="col-lg-6" >
+                        <div class ="container">
+                            <img src="{{url_for('static', filename='PING-box.jpg')}}"class="responsive">
+                            <div class="overlay" data-modal="#modalOne">
+                                <div class="text" >PING</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ping and  tracert -->
+                    <div class ="col-lg-6" >
+                        <div class="container">
+                            <img src="{{url_for('static', filename='TRACERT-box.jpg')}}" class="responsive" >
+                            <div class="overlay" data-modal="#modalTwo">
+                                <div class="text">TRACERT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="modalOne">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
+                        <p>{{ data[1] | safe }}</p>
+                    </div>
+                </div>
+                <div class="modal" id="modalTwo">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModalTracert').style.display='none'"class="close">&times;</span>
+                        <p>{{ data[2] | safe }}</p>
+                    </div>
+                </div>
+
+                <!-- nslookup and netstat -->
+                <div class ="row btn-center" >
+                    <div class ="col-lg-12">
+                        <div class="container">
+                            <img src="{{url_for('static', filename='NSLOOKUP-box.jpg')}}"class="responsive" >
+                            <div class="overlay" data-modal="#modalThree">
+                                <div class="text">NSLOOKUP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class ="col-lg-6" >
+                        <div class="container">
+                            <img src="{{url_for('static', filename='NETSTAT-box.jpg')}}" class="responsive">
+                            <div class="overlay" data-modal="#modalFour">
+                                <div class="text">NETSTAT</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="modalThree">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
+                        <p>{{ data[3] | safe }}</p>
+                    </div>
+                    </div>
+                    <div class="modal" id="modalFour">
+                        <div class="modal-content">
+                            <span onclick="document.getElementById('myModalTracert').style.display='none'"class="close">&times;</span>
+                            <p>{{ data[4] | safe }}</p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -76,9 +102,19 @@
     <div class="footer">
         <p class="pad">™ Network Diagnostic Tool 2018</p>
     </div>
-</div>
 
     <script>
+    $(".overlay").on("click", function() {
+      var modal = $(this).data("modal");
+      $(modal).show();
+    });
+
+    $(".modal").on("click", function(e) {
+      var className = e.target.className;
+      if(className === "modal" || className === "close"){
+        $(this).closest(".modal").hide();
+      }
+    });
 
     var myVar;
 
