@@ -25,13 +25,18 @@
                 </div>
             </div>
 
-
+            <div class = "border">
             <div>
             <h1 class = "font" align="center"></br></br>You are trying to check the host: {{ request.form.destine }}</h1>
             </div>
 
             <div>
             <h2 class = "font1" align="center">{{ data[0] | safe }}</h2>
+            </div>
+                </div>
+
+            <div>
+                <h1 class = "font2" align ="left"> Your Test Results</h1>
             </div>
 
 
@@ -42,18 +47,6 @@
 
                     <div class ="container">
                         <div class ="row">
-
-                             <div class ="col-lg-4">
-                                 <div class ="thecard front cont">
-                                     <p align = left > <h4 align = center >OUTPUT TIMESTAMP</h4></p>
-                              <!--  <h4>Output Timestamp</h4> -->
-                                     <div class = "thecard back cont">
-                                      <p align= left >{{ data[0] | safe }}</p>
-
-                                     </div>
-                                 </div>
-
-                            </div>
 
 
                             <div class ="col-lg-4">
@@ -70,7 +63,7 @@
 
                              <div class ="col-lg-4">
                                  <div class ="thecard front cont">
-                                     <p align = left > <h4>TRACERT OUTPUT</h4></p>
+                                     <p align = left > <h2>TRACERT OUTPUT</h2></p>
                               <!--  <h4>Output Timestamp</h4> -->
                                      <div class = "thecard back cont">
                                       <p align= left >{{ data[2] | safe }}</p>
@@ -82,7 +75,7 @@
 
                              <div class ="col-lg-4">
                                  <div class ="thecard front cont">
-                                     <p align = left > <h4>NSLOOKUP OUTPUT</h4></p>
+                                     <p align = left > <h2>NSLOOKUP OUTPUT</h2></p>
                               <!--  <h4>Output Timestamp</h4> -->
                                      <div class = "thecard back cont">
                                       <p align= left >{{ data[3] | safe }}</p>
@@ -94,7 +87,7 @@
                             <div class ="row">
                              <div class ="col-lg-8">
                                  <div class ="thecard front cont">
-                                     <p align = left > <h4>NETSTAT OUTPUT</h4></p>
+                                     <p align = left > <h2>NETSTAT OUTPUT</h2></p>
                               <!--  <h4>Output Timestamp</h4> -->
                                      <div class = " back cont">
                                       <p align= left >{{ data[4] | safe }}</p>
@@ -127,8 +120,8 @@
                             </div> -->
                         </div>
                             <form action="/email" method="GET">
-                            <button class="btn123" type="submit"><span>Send result via Email</span></button>
-                            <button class="btn123" type="button" formaction="/download"><span>Download EXE File</span></button>
+                            <button class="row btn-center btn123 btn"  type="submit"><span>Send result via Email</span></button>
+                           <!---- <button class="row btn-center btn123 btn" type="button" formaction="/download"><span>Download EXE File</span></button> -->
                             <input type = "hidden" value = {{ request.form.email }} name = "email"> <!-- use to hide the forms to send values to other pages -->
 
                             </form>
@@ -137,29 +130,31 @@
 
 
             </div>
+            <div class="footer">
+        <p class="pad">™ Network Diagnostic Tool 2018</p>
+    </div>
 
         </div>
 
+
     </div>
-    <div class="footer">
-        <p class="pad">™ Network Diagnostic Tool 2018</p>
-    </div>
+
 </div>
 
-<script>
+    <script>
+1
+    var myVar;
 
-var myVar;
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
 
-    function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-    }
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
 
-    function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-    }
-
-</script>
+    </script>
 
 </body>
 </html>
