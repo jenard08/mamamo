@@ -69,6 +69,7 @@ def main():
     print "Network status report as of " + st
 
     ping_res = ping(myUrl).replace('\r\n', '<br/>')
+
     print "Ping complete"
 
     trace_res = tracert(myUrl).replace('\r\n', '<br/>')
@@ -80,13 +81,13 @@ def main():
     netstat_res = netstat().replace('\r\n', '<br/>')
     print "Netstat complete"
 
-    data = st, ping_res, trace_res, nslookup_res, netstat_res #[0].[1],[2],[3],[4],[5]
+    data = st, ping_res, trace_res, nslookup_res, netstat_res #[0].[1],[2],[3],[4]
 
     return data
 
 @app.route('/', methods=['GET', 'POST'])
 def index_page():
-    error =None # para macheck if may error no filename inputted and destination inputteds
+    error = None  # para macheck if may error no filename inputted and destination inputted
     email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
 
     if request.method == 'POST':
@@ -111,7 +112,7 @@ def email():
     try:
         # need to verify on this
         me = request.args.get("email")
-        you = ""
+        you = "Mikaela_Nieto@trendmicro.com"
         cc = request.args.get("email")
 
         msg = MIMEMultipart('related')

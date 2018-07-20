@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>TCP/IP Utility</title>
+<title>Network Diagnostic Tool</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,29 +28,26 @@
 				<div class="col-xs-12">
 					<div class="input-group btn-center" id="">
 
-						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-						<input class="form-control"type="text" name="email" placeholder="example@trendmirco.com" value="{{ request.form.email }}">
-
+						<span class="input-group-addon"></span>
+						<input class="form-control"type="text" name="email" placeholder="Enter email | example@trendmicro.com" value="{{ request.form.email }}">
 						<br>
 					</div>
 				<!--dapat ma-scan eto ng user -->
 				    <div class="input-group btn-center">
 
-					    <span class="input-group-addon"><i class="glyphicon glyphicon-play-circle"></i></span>
+					    <span class="input-group-addon"></span>
                         <input class="form-control"type="text" name="destine" placeholder="Enter URL/IP destination" value="{{ request.form.destine }}">
 
 					    <br>
 				    </div>
 				<!-- dis will be redirected to the controller between html and python -->
-				    <div class="row btn-center">
-
-						<button type="submit" class="btn" value="GO"><span>GO</span></button>
-
+				    <div>
+						<button type="submit" class="row btn-center btn123 btn" value="GO"><span>START TEST</span></button>
 				    </div>
 
 			    </div>
                     {% if error %}
-                        <p class="error"><strong>ERROR: </strong>{{ error }}
+                       <p class="error"><strong>ERROR: </strong>{{ error }}
                     {% endif %}
 			</form>
             <br>
