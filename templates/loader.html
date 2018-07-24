@@ -28,24 +28,28 @@
                 <!--padding top mga 50px-->
                 <h2 align="center" id="sample-fontts"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
 
+
                 <div class ="row btn-center">
                     <div class ="col-lg-6" >
-                        <div class ="container">
-                            <img src="{{url_for('static', filename='PING-box.jpg')}}"class="responsive">
+                        <div class ="container1">
+                            <img src="{{url_for('static', filename='PING-box.jpg')}}" class="image-hover" style="float: right">
                             <div class="overlay" data-modal="#modalOne">
                                 <div class="text" >PING</div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- ping and  tracert -->
                     <div class ="col-lg-6" >
-                        <div class="container">
-                            <img src="{{url_for('static', filename='TRACERT-box.jpg')}}" class="responsive" >
+                        <div class="container1">
+                            <img src="{{url_for('static', filename='TRACERT-box.jpg')}}" class="image-hover" style="float: left">
                             <div class="overlay" data-modal="#modalTwo">
                                 <div class="text">TRACERT</div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- ping and  tracert -->
+
                 </div>
                 <div class="modal" id="modalOne">
                     <div class="modal-content">
@@ -62,28 +66,29 @@
 
                 <!-- nslookup and netstat -->
                 <div class ="row btn-center" >
-                    <div class ="col-lg-12">
-                        <div class="container">
-                            <img src="{{url_for('static', filename='NSLOOKUP-box.jpg')}}"class="responsive" >
+                    <div class ="col-lg-6">
+                        <div class="container1">
+                            <img src="{{url_for('static', filename='NSLOOKUP-box.jpg')}}" class="image-hover" style="float: right">
                             <div class="overlay" data-modal="#modalThree">
                                 <div class="text">NSLOOKUP</div>
                             </div>
                         </div>
                     </div>
-
                     <div class ="col-lg-6" >
-                        <div class="container">
-                            <img src="{{url_for('static', filename='NETSTAT-box.jpg')}}" class="responsive">
+                        <div class="container1">
+                            <img src="{{url_for('static', filename='NETSTAT-box.jpg')}}" class="image-hover"style="float: left">
                             <div class="overlay" data-modal="#modalFour">
                                 <div class="text">NETSTAT</div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="modal" id="modalThree">
-                    <div class="modal-content">
-                        <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
-                        <p>{{ data[3] | safe }}</p>
-                    </div>
+                        <div class="modal-content">
+                            <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times;</span>
+                            <p>{{ data[3] | safe }}</p>
+                        </div>
                     </div>
                     <div class="modal" id="modalFour">
                         <div class="modal-content">
@@ -91,17 +96,38 @@
                             <p>{{ data[4] | safe }}</p>
                         </div>
                     </div>
-
                 </div>
+                <div class="row btn-center" align="center">
+                    <button class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" ><span>Send the result via email</span></button>
+                </div>
+                <div id="id01" class="modal">
+                     <form class="modal-content animate" action="" method="POST" id="sent">
+                         <div class="imgcontainer">
+                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                             <img src="{{url_for('static', filename='email.png')}}" alt="Avatar" class="avatar">
+                         </div>
+                         <div class="container">
 
+                            <label for="psw"><b>Enter your email address:</b></label>
+                            <input type="text" placeholder="First_Last@trendmicro.com" name="email" value="{{ request.form.email }}" required>
+                            <button type="submit">Send</button>
+
+                         </div>
+                         {% if error %}
+                             <p class="error"><strong>ERROR: </strong>{{ error }}
+                            {% endif %}
+                         <div class="container" style="background-color:#FFFFFF">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                         </div>
+                     </form>
+                </div>
+                <div class="footer" >
+                    <p class="pad">™ Network Diagnostic Tool 2018</p>
+                </div>
             </div>
-
         </div>
+    </div>
 
-    </div>
-    <div class="footer">
-        <p class="pad">™ Network Diagnostic Tool 2018</p>
-    </div>
 
     <script>
     $(".overlay").on("click", function() {
@@ -114,6 +140,23 @@
       if(className === "modal" || className === "close"){
         $(this).closest(".modal").hide();
       }
+    });
+
+    $(document).ready(function(){
+        $("#sent").submit(function(e){
+            e.preventDefault()
+            $.ajax({
+                url: '/sent',
+                type: 'POST',
+                data: $('#sent').serialize(),
+                success: function(data){
+                    if(data === 'Ok'){
+                        alert('Email Sent');
+                        $('#id01').hide();
+                    }
+                }
+            });
+        });
     });
 
     var myVar;

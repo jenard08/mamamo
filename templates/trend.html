@@ -17,8 +17,6 @@
 	<div class ="container-fluid">
 
 		<div class="row" id="h4-css">
-			<!--h4 class="text-center"> TCP/IP Utility </h4-->
-            <!-- image to start the modals -->
 			 <img src="{{url_for('static', filename='samplev2.jpg')}}" class="responsive" alt="trendmictro.pic">
 		</div>
 		<div class="row btn-center" align="center">
@@ -47,20 +45,18 @@
 
 				</div>
 				 {% if error %}
-				 	<p class="error"><strong>ERROR: </strong>{{ error }}
-						{% endif %}
-				 <div class="container" style="background-color:#f1f1f1">
+					 <p class="error"><strong>ERROR: </strong>{{ error }}
+					{% endif %}
+				 <div class="container" style="background-color:#FFFFFF">
       				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
 				 </div>
-
-
 			 </form>
-		</div>
 
 		</div>
-        <div class="footer">
-            <p class="pad">™ Network Diagnostic Tool 2018</p>
-        </div>
+
+		<div class="footer">
+			<p class="pad">™ Network Diagnostic Tool 2018</p>
+		</div>
 
 	</div>
 

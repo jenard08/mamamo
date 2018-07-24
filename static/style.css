@@ -13,6 +13,12 @@ body{
 	padding: 20px 100px 20px 100px;
 	width: 100%;
 }
+
+.image-hover{
+    display:block;
+    width: 60%;
+    height: auto;
+}
 .center_div{
 	margin: 0 auto;
 	width:40%;
@@ -46,9 +52,11 @@ body{
   opacity: 0;
   transition: .5s ease;
   background-color: #ff4d4d;
+  cursor:pointer;
 }
 .container:hover .overlay {
   opacity: 1;
+
 }
 .p-ns{
     padding-left: 30%;
@@ -185,17 +193,17 @@ div.sticky1{
 
 }
 #holder {
-font-family: 'Roboto', sans-serif;
-font-size: 20px;
-font-weight: bold;
-line-height: 1.4;
-font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.4;
+    font-weight: 100;
 }
 .cont {
-border: 5px solid  #cc0000;
-background: #ffffff;
-padding: 10px;
-margin: 0;
+    border: 5px solid  #cc0000;
+    background: #ffffff;
+    padding: 10px;
+    margin: 0;
 }
 /*additional design*/
 #loader {
