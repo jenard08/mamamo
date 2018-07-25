@@ -15,11 +15,7 @@ body{
 	width: 100%;
 }
 
-.image-hover{
-    display:block;
-    width: 60%;
-    height: auto;
-}
+
 .center_div{
 	margin: 0 auto;
 	width:40%;
@@ -42,6 +38,17 @@ body{
 	height: auto;
 	cursor:pointer;
 }
+.image-hover{
+    display:block;
+    width: 100%;
+    height: auto;
+
+}
+.container {
+    width: 50%;
+    position:relative;
+
+}
 .overlay {
   position: absolute;
   top: 0;
@@ -54,17 +61,13 @@ body{
   transition: .5s ease;
   background-color: #ff4d4d;
   cursor:pointer;
+
 }
 .container:hover .overlay {
   opacity: 1;
 
 }
-.p-ns{
-    padding-left: 30%;
-}
-.t-net{
-    padding-right:30%;
-}
+
 .text {
   font-family: League Gothic;
   color: white;
@@ -296,10 +299,7 @@ img.avatar {
     border-radius: 50%;
 }
 
-.container {
-    width: 50%;
-    position:relative;
-}
+
 
 
 /* The Modal (background) */
