@@ -79,43 +79,33 @@ body{
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
+.btn123 {
+  border-radius: 50px;
+
+}
 .btn {
-  border-radius: 4px;
-  background-color: #cc0000;
-  border: none;
-  color: #FFFFFF;
   text-align: center;
-  font-size: 25px;
-  padding: 20px;
-  width: auto;
-  transition: all 0.5s;
+  font-size: 30px;
+  font-family: "League Gothic", Impact, "Arial Narrow", sans-serif;
+  font-weight: normal;
+  padding: 30px 30px;
+  transition-duration: 0.5s;
+  width:auto;
   cursor: pointer;
-  margin: 5px;
-  cursor: pointer;
+  margin-top: 80px;
+  text-transform: uppercase;
+
 }
-.btn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-  color: #FFFFFF;
+
+.btn {
+    background-color:   #8c8c8c;
+    color: white;
+
 }
-.btn span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.25s;
-  color: #FFFFFF;
-}
-.btn:hover span {
-  padding-right: 25px;
-}
-.btn:hover span:after {
-  opacity: 1;
-  right: 0;
-  color: #FFFFFF;
+
+.btn:hover {
+    background-color: #FF4136;
+    color: white;
 }
 #p-css{
   display: grid;
@@ -134,10 +124,30 @@ body{
     margin: 0 auto;
     width:40%;
 }
-#font{
+/*#font{
     font-family: Courier;
     font-style: normal;
+}*/
+
+.font {
+    font-family: "League Gothic", Impact, "Arial Narrow", sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+
 }
+
+.font1 {
+    font-family: "League Gothic", Impact, "Arial Narrow", sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: -20px;
+    margin-bottom: 50px;
+
+}
+
+
 .footer {
    /*position: fixed;*/
    left: 0;

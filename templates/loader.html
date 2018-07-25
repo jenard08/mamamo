@@ -26,7 +26,13 @@
                 </div>
 
                 <!--padding top mga 50px-->
-                <h2 align="center" id="sample-fontts"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
+                <div>
+                    <h2 class = "font" align="center"></br>You are trying to check the host: {{ request.form.destine }}</h2></br>
+                </div>
+
+                <div>
+                <h2 class = "font1" align="center">{{ data[0] | safe }}</h2>
+                </div>
 
 
                 <div class ="row btn-center">
@@ -101,7 +107,7 @@
                     </div>
                 </div>
                 <div class="row btn-center" align="center">
-                    <button class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" ><span>Send the result via email</span></button>
+                    <button class=" row btn-center btn123 btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" ><span>Send the result via Email</span></button>
                 </div>
                 <div id="id01" class="modal">
                      <form class="modal-content animate" action="" method="POST" id="sent">
