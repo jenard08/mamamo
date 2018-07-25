@@ -88,13 +88,11 @@ def main():
 @app.route('/', methods=['GET', 'POST'])
 def index_page():
     error = None  # para macheck if may error no filename inputted and destination inputted
-    email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
+
 
     if request.method == 'POST':
-        if request.form["email"] == "" or request.form["destine"] == "":
+        if request.form["destine"] == "":
             error = 'Please fill up all the text field.'
-        elif not email_re.match(str(request.form['email'])):
-            error = 'Invalid email address. Please try again'
         else:
             return redirect(url_for('success'), code=307)
     return render_template('trend.html', error=error)
@@ -111,9 +109,9 @@ def success():
 def email():
     try:
         # need to verify on this
-        me = request.args.get("email")
+        me = request.form.get("email")
         you = "Mikaela_Nieto@trendmicro.com"
-        cc = request.args.get("email")
+        cc = request.form.get("email")
 
         msg = MIMEMultipart('related')
         msg['Subject'] = "Trend Micro: Network Diagnostic Tool result"
@@ -135,6 +133,18 @@ def email():
     except Exception as e:
         return str(e)
 
+
+@app.route('/sent', methods=['POST'])
+def sent():
+    email_re = re.compile(r"(^[a-zA-Z0-9_.+-]+@trendmicro.com)")
+
+    if request.form["email"] == "":
+        return "error"
+    elif not email_re.match(str(request.form['email'])):
+        return "invalid"
+    else:
+        email()
+        return "Ok"
 
 if __name__ == '__main__':
    app.run(debug = True)

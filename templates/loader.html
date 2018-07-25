@@ -41,7 +41,6 @@
 
 
 
-
             <div class="row btn-center" align="center" >
 
 
@@ -52,7 +51,6 @@
                             <div class ="col-lg-4">
                                  <div class ="thecard front cont">
                                       <h2 align = center >PING OUTPUT</h2>
-                              <!--  <h4>Output Timestamp</h4> -->
                                      <div class = "thecard back cont">
                                       <p align= left >{{ data[1] | safe }}</p>
 
@@ -64,7 +62,6 @@
                              <div class ="col-lg-4">
                                  <div class ="thecard front cont">
                                      <p align = left > <h2>TRACERT OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
                                      <div class = "thecard back cont">
                                       <p align= left >{{ data[2] | safe }}</p>
 
@@ -76,7 +73,6 @@
                              <div class ="col-lg-4">
                                  <div class ="thecard front cont">
                                      <p align = left > <h2>NSLOOKUP OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
                                      <div class = "thecard back cont">
                                       <p align= left >{{ data[3] | safe }}</p>
 
@@ -88,36 +84,13 @@
                              <div class ="col-lg-8">
                                  <div class ="thecard front cont">
                                      <p align = left > <h2>NETSTAT OUTPUT</h2></p>
-                              <!--  <h4>Output Timestamp</h4> -->
                                      <div class = " back cont">
                                       <p align= left >{{ data[4] | safe }}</p>
                                      </div>
                                  </div>
                             </div>
 
-<!--
-                            <div class ="col-lg-4">
-                                <h4>Ping Output</h4>
-                                <p align= left class = "cont">{{ data[1] | safe }}</p>
-                            </div>
 
-
-                            <div class ="col-lg-4">
-                                  <h4>Tracert Output</h4>
-                                <p align= left class = "cont">{{ data[2] | safe }}</p>
-                            </div>
-
-                            <div class ="col-lg-4">
-                                <h4>Nslookup Output</h4>
-                                <p align= left class = "cont">{{ data[3] | safe }}</p>
-                            </div>
-
-                        </div>
-                        <div class ="row">
-                            <div class ="col-lg-12">
-                                <h4>Netstat Output</h4>
-                                <p align= left class = "cont">{{ data[4] | safe }}</p>
-                            </div> -->
                         </div>
                             <form action="/email" method="GET">
                             <button class="row btn-center btn123 btn"  type="submit"><span>Send result via Email</span></button>
@@ -129,20 +102,54 @@
                 </div>
 
 
+                </div>
+                <div class="footer">
+                    <p class="pad">™ Network Diagnostic Tool 2018</p>
+                </div>
             </div>
-            <div class="footer">
-        <p class="pad">™ Network Diagnostic Tool 2018</p>
-    </div>
-
         </div>
-
-
     </div>
-
-</div>
 
     <script>
-1
+
+     $(".overlay").on("click", function() {
+      var modal = $(this).data("modal");
+      $(modal).show();
+    });
+
+    $(".modal").on("click", function(e) {
+      var className = e.target.className;
+      if(className === "modal" || className === "close"){
+        $(this).closest(".modal").hide();
+      }
+    });
+
+    $(document).ready(function(){
+        $("#sent").submit(function(e){
+            e.preventDefault()
+            $.ajax({
+                url: '/sent',
+                type: 'POST',
+                data: $('#sent').serialize(),
+                success: function(data){
+                    if(data === 'error'){
+                        alert('INVALID! Please fill up the form.');
+                        $('#id01').show()
+                    }
+                    else if(data == 'invalid'){
+                        alert('Wrong email format')
+                        $('#id01').show()
+                    }
+                    else{
+                        alert('Email Sent!')
+                        $('#id01').hide();
+                    }
+                }
+            });
+        });
+    });
+
+
     var myVar;
 
         function myFunction() {
