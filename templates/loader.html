@@ -109,7 +109,7 @@
                          <div class="container">
 
                             <label for="psw"><b>Enter your email address:</b></label>
-                            <input type="text" placeholder="First_Last@trendmicro.com" name="email" value="{{ request.form.email }}" required>
+                            <input type="text" placeholder="First_Last@trendmicro.com" name="email" value="{{ request.form.email }}">
                             <button type="submit">Send</button>
 
                          </div>
@@ -150,8 +150,16 @@
                 type: 'POST',
                 data: $('#sent').serialize(),
                 success: function(data){
-                    if(data === 'Ok'){
-                        alert('Email Sent');
+                    if(data === 'error'){
+                        alert('INVALID! Please fill up the form.');
+                        $('#id01').show()
+                    }
+                    else if(data == 'invalid'){
+                        alert('Wrong email format')
+                        $('#id01').show()
+                    }
+                    else{
+                        alert('Email Sent!')
                         $('#id01').hide();
                     }
                 }
