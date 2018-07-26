@@ -10,7 +10,6 @@ from email.mime.text import MIMEText
 from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
-
 g_data = ""
 
 def ping(myUrl):
