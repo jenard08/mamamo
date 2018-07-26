@@ -116,7 +116,9 @@ def email():
         msg['From'] = me
         msg['To'] = you
 
-        html = "<html><body><p>" + str(g_data) + "</p><body></html>"
+        html = \
+            "<html><body>" \
+            "<div><img src='{{url_for('static', filename='header.jpg')}}'></div><p>" + str(g_data[1]) + "</p><body></html>"
 
         part2 = MIMEText(html, 'html')
         msg.attach(part2)
