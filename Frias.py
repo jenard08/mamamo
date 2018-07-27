@@ -118,7 +118,14 @@ def email():
 
         html = \
             "<html><body>" \
-            "<div><img src='{{url_for('static', filename='header.jpg')}}'></div><p>" + str(g_data[1]) + "</p><body></html>"
+            "<div><img src='http://127.0.0.1:5000/static/finalHeader.jpg' /></div>" \
+            "<h2 style='font-family: courier'>Ping result complete:</h2><p>" + str(g_data[1]) + "</p><br/>" \
+            "<h2 style='font-family: courier'>Traceroute result complete:</h2><p>" + str(g_data[2]) + "</p><br/>" \
+            "<h2 style='font-family: courier'>Nslookup result complete:</h2><p>" + str(g_data[3]) + "</p><br/>" \
+            "<h2 style='font-family: courier'>Netstat result complete:</h2><p>" + str(g_data[4]) + "</p><br/>" \
+            "<div><h1 align='center' style='font-family: League Gothic'>" + str(g_data[0]) + "</h1></div><br/>" \
+            "<div><img src='http://127.0.0.1:5000//static/finalFooter.jpg' /></div>" \
+            "<body></html>"
 
         part2 = MIMEText(html, 'html')
         msg.attach(part2)
